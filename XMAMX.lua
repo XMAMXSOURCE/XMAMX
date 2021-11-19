@@ -8084,16 +8084,36 @@ keyboard = {}
 keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_}}}
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end,nil)
+return false end
 
 end
-if text == "مالك السورس" and ChanSub(msg) or text == "المبرمج" and ChanSub(msg) or text == "مطور السورس" and ChanSub(msg) or text == "مبرمج السورس" and ChanSub(msg) then
 
-Text = [[
+if text and (text == 'مطور السورس' or text == 'مبرمج السورس' or text == 'وين مطور السورس') then
 
-❈︙[X OF SoURcE](https://t.me/lllEll1)
+tdcli_function({ID="GetUser",user_id_=SUDO},function(arg,result)
 
-]]
+local msg_id = msg.id_/2097152/0.5
+
+Text = "*᥀︙Dev Name ↬ * ["مطور السورس هذا"](T.me/"..result.username_..")\n*᥀︙Dev User ↬* [@"lllEll1"]"
+
+keyboard = {} 
+
+keyboard.inline_keyboard = {{{text = ''..result.first_name_..' ',url="t.me/"..result.username_}}}
+
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/'..result.username_..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+
+end,nil)
+
 end
+
+
+
+
+
+
+
+
+
 
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
 if Constructor(msg) then  
